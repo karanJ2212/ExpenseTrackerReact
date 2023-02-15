@@ -1,22 +1,22 @@
-import React from "react";
-import "./NewExpense.css";
-import { v4 as uuid } from "uuid";
+import React from 'react';
 
-import ExpenseForm from "./ExpenseForm";
+import ExpenseForm from './ExpenseForm';
+import './NewExpense.css';
 
-export default function NewExpense(props) {
-  const saveExpenseDataHandler = (enteredData) => {
+const NewExpense = (props) => {
+  const saveExpenseDataHandler = (enteredExpenseData) => {
     const expenseData = {
-      ...enteredData,
-      id: uuid(),
+      ...enteredExpenseData,
+      id: Math.random().toString()
     };
-    console.log("in newExpense", expenseData);
-    props.onnewExpense(expenseData);
+    props.onAddExpense(expenseData);
   };
 
   return (
-    <div className="new-expense">
-      <ExpenseForm onsaveExpenseData={saveExpenseDataHandler}></ExpenseForm>
+    <div className='new-expense'>
+      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
-}
+};
+
+export default NewExpense;
