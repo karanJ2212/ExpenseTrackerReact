@@ -2,9 +2,9 @@ import React from "react";
 import "./ChartBar.css";
 
 export default function ChartBar(props) {
-  const barfillheight = "0%";
+  let barfillheight = "0%";
 
-  if (props.max > 0) {
+  if (props.maxValue > 0) {
     barfillheight = Math.round((props.value / props.maxValue) * 100) + "%";
   }
   return (
